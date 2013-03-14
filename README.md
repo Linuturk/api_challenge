@@ -11,19 +11,20 @@ In order to submit your answers for prizes, you must:
 
 ## Information on the Desired Language:
 
-You are encouraged to use one of the following Software Development Kits (SDK):
+### You are encouraged to use one of the following Software Development Kits (SDK):
 
  * Pyrax for Python (http://docs.rackspace.com/sdks/guide/content/python.html)
  * jClouds for Java (http://docs.rackspace.com/sdks/guide/content/java.html)
  * PHP-Opencloud (http://docs.rackspace.com/sdks/guide/content/php.html)
 
-## Other Languages which do not have an official Rackspace SDK yet:
+### Other Languages which do not have an official Rackspace SDK yet:
 
  * Ruby
  * .Net
  * Node.js
 
-Languages that you are strongly encouraged to avoid:
+### Languages that you are strongly encouraged to avoid:
+
  * Bash
 
 For all challenges, you can assume that a valid credentials file with the username and API key exist at ~/.rackspace_cloud_credentials
