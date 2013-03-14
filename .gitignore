@@ -1,5 +1,8 @@
 *.py[cod]
 
+# Credentials
+.rackspace_cloud_credentials
+
 # C extensions
 *.so
 
