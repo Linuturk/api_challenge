@@ -22,7 +22,7 @@ flavor_512 = [flavor for flavor in cs.flavors.list()
               if flavor.ram == 512][0]
 
 # Delete servers when finished
-delete = False
+delete = True
 # Number of attempts
 timeout = 9
 
@@ -34,14 +34,17 @@ for name in servers:
 
     # Create server and print attributes
     server = cs.servers.create(name, ubu_image.id, flavor_512.id)
+    print "=" * 20
     print "ID:", server.id
     print "Status:", server.status
     print "Admin password:", server.adminPass
 
     # Check for network configuration
     count = 0
+    print "Retrieving Network Configuration . . . "
     while count < timeout:
         count += 1
+        print "Attempt %i out of %i" % (count, timeout)
         server = cs.servers.get(server.id)
         time.sleep(5)
         if "public" in server.networks:
@@ -52,10 +55,11 @@ for name in servers:
     if network == 1:
         print "Networks:", server.networks
     else:
-        print "Network failed after %i attempts" % count
+        print "ERROR - Network failed after %i attempts." % timeout
 
     # Delete server
     if delete == True:
         time.sleep(5)
         print "Deleting:", server.id
         server.delete()
+    print "=" * 20
