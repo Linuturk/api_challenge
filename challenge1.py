@@ -22,7 +22,7 @@ flavor_512 = [flavor for flavor in cs.flavors.list()
               if flavor.ram == 512][0]
 
 # Delete servers when finished
-delete = True
+delete = False
 # Number of attempts
 timeout = 9
 
