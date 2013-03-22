@@ -4,19 +4,23 @@ import pyrax
 import logging
 import utils
 
-#logging.basicConfig(level=logging.INFO)
+
 challenge = """
             Write a script that clones a server (takes an image and deploys
-            the image as a new server). get a listing of servers on an
+            the image as a new server). Get a listing of servers on an
             account, grab a random server, image it, and then create a new
             server from this image.
             """
 points = 2
+
+# Logging
+logging.basicConfig(level=logging.INFO)
+logging.warn("Output is logged as INFO by default.")
+logging.warn("Change logging level to INFO for more details.")
 logging.info("Challenge: %s", challenge)
 logging.info("Points: %i", points)
 
 # Setup pyrax creds and objects
-logging.info("Creating pyrax.cloudservers object.")
 pyrax.set_credential_file(".rackspace_cloud_credentials")
 cs = pyrax.cloudservers
 

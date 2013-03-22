@@ -3,6 +3,9 @@
 # Credentials
 .rackspace_cloud_credentials
 
+# Vim Undo Files
+*.un~
+
 # C extensions
 *.so
 
