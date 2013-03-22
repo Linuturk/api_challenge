@@ -19,7 +19,6 @@ delete = False
 
 # Logging
 #logging.basicConfig(level=logging.INFO)
-logging.warn("Output is logged as INFO by default.")
 logging.warn("Change logging level to INFO for more details.")
 logging.info("Challenge: %s", challenge)
 logging.info("Points: %i", points)
@@ -37,6 +36,7 @@ flavor_512 = [flavor for flavor in cs.flavors.list()
               if flavor.ram == 512][0]
 
 servers = []
+output = []
 
 for name in server_names:
     network = 0
@@ -44,9 +44,11 @@ for name in server_names:
     # Create server and print attributes
     server = cs.servers.create(name, ubu_image.id, flavor_512.id)
     servers.append(server)
-    print "ID:", server.id
-    print "Status:", server.status
-    print "Admin password:", server.adminPass
+    output.append("=" * 30)
+    output.append("Name: " + str(server.name))
+    output.append("ID: " + str(server.id))
+    output.append("Status: " + str(server.status))
+    output.append("Admin Password: " + str(server.adminPass))
 
     # Check for network configuration
     logging.warn("Waiting for network. This can take a while. Be patient.")
@@ -54,10 +56,13 @@ for name in server_names:
         server = cs.servers.get(server.id)
         time.sleep(10)
     else:
-        print "Network:", server.networks
+        output.append("Network: " + str(server.networks))
 
 # Delete servers
 if delete is True:
     for server in servers:
         logging.warn("Deleting %s", server.id)
         server.delete()
+
+for message in output:
+    print message
