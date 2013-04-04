@@ -7,7 +7,7 @@ Rackspace API Challenge
 In order to submit your answers for prizes, you must:
 
  * Create a public github account and push your answers to a new repository with filenames of challenge1, challenge2, etc.
- * Submit your repository using the form at http://challenge.cldsrvr.com/register by April 10th.
+ * Submit your repository by April 10th.
 
 ## Information on the Desired Language:
 
@@ -45,7 +45,7 @@ In addition to using this as an opportunity to grow knowledge around Rackspace, 
 
 ### I'm not a developer. Should I even try this?
 
-Yes! The goal is to get out of your comfort zone and expand your skill set. All of the Rackspace SDKs listed above have a great "Samples" section with code that you can use as a jumping off point. We have created a new internal forum category at https://forums.rackspace.corp/categories/api-challenges where you can ask for help and discuss each challenge. Codecademy.com is also a great resource for building a development foundation.
+Yes! The goal is to get out of your comfort zone and expand your skill set. All of the Rackspace SDKs listed above have a great "Samples" section with code that you can use as a jumping off point. We have created a new internal forum category where you can ask for help and discuss each challenge. Codecademy.com is also a great resource for building a development foundation.
       
 ### I've never used github, and you scared me with all this talk about repositories, pushing, and cloning.
 
