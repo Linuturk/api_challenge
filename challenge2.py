@@ -2,7 +2,7 @@
 
 import pyrax
 import logging
-import utils
+import random
 
 
 challenge = """
@@ -27,7 +27,8 @@ output = []
 
 # Choose a random server
 logging.info("Choosing a random server.")
-server = utils.random_server(cs)
+servers = cs.servers.list()
+server = random.choice(servers)
 logging.info("Server %s chosen.", server.name)
 output.append("Source Server: " + str(server.name))
 
@@ -41,7 +42,7 @@ logging.info("Image %s in progress...", image_id)
 
 # Wait for image to complete
 logging.info("Waiting for image to complete. Grab a snickers.")
-utils.image_progress(cs, image)
+pyrax.utils.wait_until(image, "status", "ACTIVE", attempts=0, verbose=True)
 logging.info("Image %s complete.", image.name)
 
 # Clone server
@@ -57,7 +58,7 @@ logging.info("Server clone %s in progress...", clone.id)
 
 # Wait for clone to finish building
 logging.info("Waiting for clone build to complete. Grab another snickers.")
-utils.server_progress(cs, clone)
+pyrax.utils.wait_until(clone, "status", ('ACTIVE', 'ERROR'), verbose=True)
 clone = cs.servers.get(clone.id)
 output.append("\tNetworks: " + str(clone.networks))
 logging.info("Server %s complete.", clone.name)
