@@ -2,6 +2,7 @@
 
 # Credentials
 .rackspace_cloud_credentials
+.mailgunapi
 
 # Vim Undo Files
 *.un~
